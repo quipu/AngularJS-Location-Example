@@ -1,0 +1,42 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!-->
+<html ng-app="TheApp"><!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title></title>
+
+        <link rel="stylesheet" href="build/css/normalize.css"/>
+        <link rel="stylesheet" href="build/css/foundation.css"/>
+
+        <!--[if lt IE 9]>
+                <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+    </head>
+
+    <body lang="en">
+    <div class="row">
+        <div class="large-12 columns">
+            <div ui-view></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-mm-foundation/src/modal/modal.js"></script>
+    <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/constant.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/controllers.js"></script>
+    <script src="app/directives.js"></script>
+    <script src="app/services.js"></script>
+    </body>
+
+</html>

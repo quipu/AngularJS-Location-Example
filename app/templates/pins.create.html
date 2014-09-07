@@ -1,0 +1,148 @@
+<h1>{{contentTitle}}</h1>
+<form novalidate="novalidate" name="createPinForm" id="createPinForm" role="form">
+    <div class="row">
+        <!-- ============ GOOGLE PLACES ============ -->
+        <div class="large-12 columns">
+            <label>Location: <small>Loc: {{formData.place}}</small>
+                <input type="text"
+                       ng-autocomplete
+                       name="place_lookup"
+                       ng-model="autocomplete"
+                       options="options"
+                       details="details"
+                       ng-model="formData.place"
+                       required/>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <!-- ============ USER ID ============ -->
+        <div class="large-2 columns">
+            <label>User ID: <small>userId: {{formData.userId}}</small>
+                <input type="number"
+                       name="user_id"
+                       ng-model="formData.userId"
+                       min="0"
+                       ng-maxlength="8" required/>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.user_id.$error.required">A number is required</small>
+        </div>
+        <!-- ============ LATITUDE ============ -->
+        <div class="large-3 columns">
+            <label>Lat:
+                <input type="number"
+                       name="lat"
+                       ng-model="formData.lat" required
+                       ng-readonly
+                       ng-maxlength="20" required/>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.lat.$error.required">A number is required</small>
+        </div>
+        <!-- ============ LONGITUDE ============ -->
+        <div class="large-3 columns">
+            <label>Lon:
+                <input type="number"
+                       name="lon"
+                       ng-model="formData.lon" required
+                       ng-readonly
+                       ng-maxlength="20" required/>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.lon.$error.required">A number is required</small>
+        </div>
+        <!-- ============ MSG TYPE ============ -->
+        <div class="large-4 columns">
+            <label>Msg. Type:
+                <select ng-model="formData.msgType"
+                        name="msg_type"
+                        required
+                        ng-options="option.type for option in msgOptions">
+                </select>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.msg_type.$error.required">Type required</small>
+        </div>
+    </div>
+    <div class="row">
+        <!-- ============ PIN ADDRESS ============ -->
+        <div class="large-12 columns">
+            <label>
+                Pin address:
+                <input type="text"
+                       name="address"
+                       ng-model="formData.address"
+                       ng-minlength=10
+                       ng-maxlength=500
+                       ng-readonly
+                       required/>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.address.$error.required">Required</small>
+        </div>
+    </div>
+    <div class="row">
+        <!-- ============ IMAGE URL ============ -->
+        <div class="large-12 columns">
+            <label>
+                ImageUrl: To be done.
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.address.$error.required">Required</small>
+        </div>
+    </div>
+    <div class="row">
+        <!-- ============ DEVICE ============ -->
+        <div class="large-4 column">
+            <label>
+                Device:
+                <input type="text"
+                       name="device"
+                       ng-model="formData.device"
+                       readonly
+                       ng-maxlength="200" required/>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.device.$error.required">Required</small>
+        </div>
+        <!-- ============ TRUST ============ -->
+        <div class="large-2 column">
+            <label>
+                Trust:
+                <input type="number"
+                       name="trust"
+                       ng-model="formData.trust"
+                       required/>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.trust.$error.required">Required</small>
+        </div>
+        <!-- ============ STATUS ============ -->
+        <div class="large-2 column">
+            <label>
+                Status:
+                <input type="number"
+                       name="status"
+                       ng-model="formData.status"
+                       required/>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.status.$error.required">Required</small>
+        </div>
+        <!-- ============ PADDING ============ -->
+        <div class="large-4 columns"></div>
+    </div>
+    <div class="row">
+        <!-- ============ PIN MESSAGE ============ -->
+        <div class="large-12 columns">
+            <label>Pin message
+                <textarea name="message"
+                          rows="4"
+                          placeholder="Enter your message..."
+                          ng-model="formData.msg"
+                          ng-maxlength="1000" required></textarea>
+            </label>
+            <small class="error" ng-show="submitted && createPinForm.message.$error.required">Required</small>
+        </div>
+    </div>
+    <div class="row">
+        <!-- ============ SUBMIT BUTTON / AVAILABLE CHARS ============ -->
+        <div class="large-12 columns">
+            <p class="right">Available characters: <span ng-bind="140 - formData.msg.length">140</span></p>
+            <button type="submit" class="button radius"  ng-click="createPin(createPinForm)">Submit</button>
+            <hr class="clearfix"/>
+        </div>
+    </div>
+</form>

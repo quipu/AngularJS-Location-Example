@@ -1,0 +1,24 @@
+<div>
+    <h1>{{contentTitle}}</h1>
+    <form role="form" novalidate>
+        <div class="form-group">
+            <label>Location: <small>{{lookup}}</small></label>
+            <input type="text"
+                   ng-autocomplete
+                   options="locationSearchOptions"
+                   details="locationSearchDetails"
+                   class="form-control"
+                   name="lookup"
+                   required
+                   ng-model="lookupLocation"
+                    />
+        </div>
+    </form>
+    <button class="btn btn-primary" ng-click="getLocation()">Use current location</button>
+    <p ng-show="currentLocation.address">Location details: {{currentLocation}}</p>
+
+    <form role="form">
+        <textarea name="message" id="message" cols="30" rows="5"></textarea>
+    </form>
+
+</div>
